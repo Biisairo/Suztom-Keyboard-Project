@@ -22,17 +22,17 @@ mugcup4 - The Third Project
 ## Image
 
 ### mitt38
-![mitt38_gerber]()
+![mitt38_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mitt38_gerber.png)
 
 ![mitt38]()
 
 ### zako34
-![zako34_gerber]()
+![zako34_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/zako34_gerber.png)
 
 ![zako34]()
 
 ### mugcup4
-![mugcup4_gerber]()
+![mugcup4_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mugcup4_gerber.png)
 
 ![mugcup4]()
 
