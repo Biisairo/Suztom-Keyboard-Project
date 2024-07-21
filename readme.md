@@ -22,46 +22,44 @@ mugcup4 - The Third Project
 ## Image
 
 ### mitt38
-![mitt38_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mitt38_gerber.png)
-
-![mitt38]()
+<img src = "https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mitt38_gerber.png" width="600">
 
 ### zako34
-![zako34_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/zako34_gerber.png)
-
-![zako34]()
+<img src = "https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/zako34_gerber.png" width="500">
 
 ### mugcup4
-![mugcup4_gerber](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mugcup4_gerber.png)
-
-![mugcup4]()
+<img src = "https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/img/mugcup4_gerber.png" width="300">
 
 ## Parts
 - type and quantity of parts can vary depending on the keyboard
 ### common
-|parts								|etc
-|-----------						|------	
-|top plate							|
-|pcb plate							|
-|bottom plate						|
-|2m screw							|6mm, 8mm
-|2m stand off						|8mm
-|reset switch						|TS-1187SMD
+|parts							            	|etc
+|-----------					          	|------	
+|top plate						          	|
+|pcb plate						          	|
+|bottom plate				          		|
+|2m screw							            |6mm, 8mm
+|2m stand off			          			|8mm
+|reset switch						          |TS-1187SMD
 |pro micro(or alternative board)	|
-|diode								|tht 1N4148
+|diode							            	|tht 1N4148
 ### mitt38
-|parts								|etc
+|parts						  		|etc
 |-----------						|------	
-|2m nut								|
+|2m nut								  |
 |Cirque 40mm						|
-|Cirque adapter board				|
+|Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
+|trackpad cover					|for 40mm
+|trackpad holder				|for 40mm
 ### mugcup4
-|parts								|etc
+|parts							  	|etc
 |-----------						|------	
 |Cirque 35mm						|
-|Cirque adapter board				|
+|Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
+|trackpad cover					|for 35mm
+|trackpad holder				|for 35mm
 
 ## Reference
 - [ergogen](https://github.com/ergogen/ergogen)
