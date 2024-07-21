@@ -1,0 +1,563 @@
+units:
+  # unit size
+  us: U
+
+  # outlines value
+  outline_margin: 0.6
+  smoothing: 1
+  screwSize: 2.25
+  screwSize_plate: 1.1
+  screwMargin: 2
+
+  # promicro pos
+  pro_x: 0
+  pro_y: 11
+  pro_rot: -90
+
+  #reset pos
+  reset_x: 16
+  reset_y: -20
+
+  #holder pos
+  hole_x: -10
+  hole_y: 0
+  hole_rot: 90
+
+points:
+  zones:
+    matrix:
+      anchor:
+#        shift: [130,-100]
+      key:
+        padding: 1us
+        spread: 1us
+      columns:
+        pinky:
+          key:
+            stagger: 
+            column_net: P4
+        ring:
+          key:
+            stagger: 0.7us
+            column_net: P5
+        middle:
+          key:
+            stagger: 0.4us
+            column_net: P18
+        index:
+          key:
+            stagger: -0.3us
+            column_net: P19
+        inner:
+          key:
+            stagger: -0.2us
+            column_net: P20
+      rows:
+        bottom:
+          row_net: P16
+          mirror.row_net: P8
+        home:
+          row_net: P14
+          mirror.row_net: P7
+        top:
+          row_net: P15
+          mirror.row_net: P6
+
+    thumbs:
+      key:
+        padding: 1us
+        spread: 1us
+      anchor:
+          ref: matrix_inner_bottom
+          shift: [-0.5us, -1.2us]
+      columns:
+        layer:
+          key:
+            splay: -15
+            column_net: P5
+        space:
+          key:
+            splay: -15
+            shift: [4,-2]
+            column_net: P18
+      rows:
+        cluster:
+          row_net: P10
+          mirror.row_net: P9
+
+  mirror:
+    ref: matrix_inner_top
+    distance: 50
+  rotate: -45
+
+outlines:
+  key_hole:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [14.02,14.02]
+  key_test:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [us, us]
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [us, us]
+      fillet: smoothing
+  board_outline:
+    - what: polygon
+      operation: stack
+      fillet: smoothing
+      points:
+      # main top
+        - ref: matrix_pinky_top
+          shift: [-0.5us, 0.5us]
+        - ref: matrix_pinky_top
+          shift: [0.5us, 0.5us]
+        - ref: matrix_ring_top
+          shift: [-0.5us, 0.5us]
+        - ref: matrix_ring_top
+          shift: [0.5us, 0.5us]
+        - ref: matrix_middle_top
+          shift: [-0.5us, 0.5us]
+        - ref: matrix_middle_top
+          shift: [0.5us, 0.5us]
+        - ref: matrix_index_top
+          shift: [-0.5us, 0.5us]
+      # mirror top
+        - ref: mirror_matrix_index_top
+          shift: [-0.5us, 0.5us]
+        - ref: mirror_matrix_middle_top
+          shift: [0.5us, 0.5us]
+        - ref: mirror_matrix_middle_top
+          shift: [-0.5us, 0.5us]
+        - ref: mirror_matrix_ring_top
+          shift: [0.5us, 0.5us]
+        - ref: mirror_matrix_ring_top
+          shift: [-0.5us, 0.5us]
+        - ref: mirror_matrix_pinky_top
+          shift: [0.5us, 0.5us]
+        - ref: mirror_matrix_pinky_top
+          shift: [-0.5us, 0.5us]
+      # mirror bot out
+        - ref: mirror_matrix_pinky_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_matrix_pinky_bottom
+          shift: [0.5us, -0.5us]
+        - ref: mirror_matrix_ring_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_matrix_ring_bottom
+          shift: [0.5us, -0.5us]
+        - ref: mirror_matrix_middle_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_matrix_middle_bottom
+          shift: [0.5us, -0.5us]
+        - ref: mirror_matrix_index_bottom
+          shift: [-0.5us, -0.5us]
+      # mirror thumbs
+        - ref: mirror_thumbs_layer_cluster
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0.5us, -0.5us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.5us, -0.5us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.5us, 0.5us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [-0.5us, 0.5us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0.5us, 0.5us]
+      # mirror bot in
+        - ref: mirror_matrix_inner_bottom
+          shift: [0us, -0.5us]
+        - ref: mirror_matrix_inner_bottom
+          shift: [0.5us, -0.5us]
+        - ref: mirror_matrix_inner_home
+          shift: [0.5us, 0.5us]
+      # main bot in
+        - ref: matrix_inner_home
+          shift: [0.5us, 0.5us]
+        - ref: matrix_inner_bottom
+          shift: [0.5us, -0.5us]
+        - ref: matrix_inner_bottom
+          shift: [0us, -0.5us]
+      # main thumbs
+        - ref: thumbs_layer_cluster
+          shift: [0.5us, 0.5us]
+        - ref: thumbs_space_cluster
+          shift: [-0.5us, 0.5us]
+        - ref: thumbs_space_cluster
+          shift: [0.5us, 0.5us]
+        - ref: thumbs_space_cluster
+          shift: [0.5us, -0.5us]
+        - ref: thumbs_space_cluster
+          shift: [-0.5us, -0.5us]
+        - ref: thumbs_layer_cluster
+          shift: [0.5us, -0.5us]
+        - ref: thumbs_layer_cluster
+          shift: [-0.5us, -0.5us]
+      # main bot out
+        - ref: matrix_index_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: matrix_middle_bottom
+          shift: [0.5us, -0.5us]
+        - ref: matrix_middle_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: matrix_ring_bottom
+          shift: [0.5us, -0.5us]
+        - ref: matrix_ring_bottom
+          shift: [-0.5us, -0.5us]
+        - ref: matrix_pinky_bottom
+          shift: [0.5us, -0.5us]
+        - ref: matrix_pinky_bottom
+          shift: [-0.5us, -0.5us]
+  thumbs_board:
+    - what: polygon
+      operation: stack
+      fillet: smoothing
+      points:
+        - ref: thumbs_layer_cluster
+          shift: [0.5 * us, 0.5 * us]
+        - ref: thumbs_layer_cluster
+          shift: [-0.5 * us, 0.5 * us]
+        - ref: thumbs_layer_cluster
+          shift: [-0.5 * us, -0.5 * us]
+        - ref: thumbs_layer_cluster
+          shift: [0.5 * us, -0.5 * us]
+
+        - ref: thumbs_space_cluster
+          shift: [-0.5 * us, -0.5 * us]
+        - ref: thumbs_space_cluster
+          shift: [0.5 * us, -0.5 * us]
+        - ref: thumbs_space_cluster
+          shift: [0.5 * us, 0.5 * us]
+        - ref: thumbs_space_cluster
+          shift: [-0.5 * us, 0.5 * us]
+  mirror_thumbs_board:
+    - what: polygon
+      operation: stack
+      fillet: smoothing
+      points:
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0.5 * us, 0.5 * us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [-0.5 * us, 0.5 * us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [-0.5 * us, -0.5 * us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0.5 * us, -0.5 * us]
+
+        - ref: mirror_thumbs_space_cluster
+          shift: [-0.5 * us, -0.5 * us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.5 * us, -0.5 * us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [0.5 * us, 0.5 * us]
+        - ref: mirror_thumbs_space_cluster
+          shift: [-0.5 * us, 0.5 * us]
+
+  bridge_board:
+    - what: polygon
+      operation: stack
+      fillet: 1
+      points:
+        - ref: thumbs_layer_cluster
+          shift: [-0.5us, -0.5us]
+        - ref: thumbs_layer_cluster
+          shift: [0.72us, -0.5us]
+        - ref: matrix_middle_bottom
+          shift: [1.2us, 0us]
+        - ref: matrix_middle_bottom
+          shift: [0us, 0us]
+
+  mirror_bridge_board:
+    - what: polygon
+      operation: stack
+      fillet: 0
+      points:
+        - ref: mirror_thumbs_layer_cluster
+          shift: [-0.5us, -0.5us]
+        - ref: mirror_thumbs_layer_cluster
+          shift: [0.72us, -0.5us]
+        - ref: mirror_matrix_middle_bottom
+          shift: [1.2us, 0us]
+        - ref: mirror_matrix_middle_bottom
+          shift: [0us, 0us]
+
+  hole1:
+    - what: rectangle
+      where:
+        ref: matrix_pinky_home
+        shift: [hole_x,hole_y]
+        rotate: hole_rot
+      size: [2us + 4, 12]
+      fillet: 3
+  hole2:
+    - what: rectangle
+      where:
+        ref: matrix_pinky_home
+        shift: [hole_x,hole_y]
+        rotate: hole_rot
+      size: [2us - 8 + 4, 6]
+      fillet: 1
+
+  hole:
+    - name: hole1
+    - operation: subtract
+      name: hole2
+
+  board:
+    - name: board
+    - operation: add
+      name: board_outline
+
+# pcb parts
+  promicro:
+    - what: rectangle
+      size: [38, 20]
+      where:
+        ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+        shift: [pro_x,pro_y + 3]
+        rotate: pro_rot
+
+
+# pcb mount hole
+  mounting_pcb:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [matrix_pinky_bottom]
+        shift: [0.5us, 0.5us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [matrix_ring_top]
+        shift: [-0.5us, -0.5us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [matrix_index_top]
+        shift: [0.5us, 1us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [matrix_inner_bottom]
+        shift: [-1us, -0.7us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref.aggregate.parts: [thumbs_layer_cluster, thumbs_space_cluster]
+        shift: [0, 0.3us]
+
+    - what: circle
+      radius: screwSize
+      where:
+        ref: [mirror_matrix_pinky_bottom]
+        shift: [0.5us, 0.5us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [mirror_matrix_ring_top]
+        shift: [-0.5us, -0.5us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [mirror_matrix_index_top]
+        shift: [0.5us, 1us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref: [mirror_matrix_inner_bottom]
+        shift: [-1us, -0.7us]
+    - what: circle
+      radius: screwSize
+      where:        
+        ref.aggregate.parts: [mirror_thumbs_layer_cluster, mirror_thumbs_space_cluster]
+        shift: [0, 0.3us]
+
+    - what: circle
+      radius: screwSize
+      where:        
+        ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+        shift: [0, -9]
+
+  mounting_plate:
+    - what: circle
+      radius: screwSize_plate
+      where:
+        ref: [matrix_pinky_bottom]
+        shift: [0.5us, 0.5us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [matrix_ring_top]
+        shift: [-0.5us, -0.5us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [matrix_index_top]
+        shift: [0.5us, 1us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [matrix_inner_bottom]
+        shift: [-1us, -0.7us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref.aggregate.parts: [thumbs_layer_cluster, thumbs_space_cluster]
+        shift: [0, 0.3us]
+
+    - what: circle
+      radius: screwSize_plate
+      where:
+        ref: [mirror_matrix_pinky_bottom]
+        shift: [0.5us, 0.5us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [mirror_matrix_ring_top]
+        shift: [-0.5us, -0.5us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [mirror_matrix_index_top]
+        shift: [0.5us, 1us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref: [mirror_matrix_inner_bottom]
+        shift: [-1us, -0.7us]
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref.aggregate.parts: [mirror_thumbs_layer_cluster, mirror_thumbs_space_cluster]
+        shift: [0, 0.3us]
+
+    - what: circle
+      radius: screwSize_plate
+      where:        
+        ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+        shift: [0, -9]
+  
+  # reset hole
+  reset_hole:
+    - what: circle
+      radius: 2
+      where:
+          ref.aggregate.parts: [matrix_middle_top, mirror_matrix_middle_top]
+          shift: [reset_x,reset_y]
+
+# output
+  top_plate:
+    - name: board
+    - operation: subtract
+      name: key_hole
+    - name: top_plate
+    - operation: subtract
+      name: reset_hole
+    - name: top_plate
+    - operation: subtract
+      name: mounting_plate
+    - name: top_plate
+    - operation: subtract
+      name: promicro
+  pcb_plate:
+    - name: board
+    - operation: subtract
+      name: mounting_pcb
+    - name: pcb_plate
+    - operation: add
+      name: hole
+    - name: pcb_plate
+    - operation: stack
+      name: promicro
+  bottom_plate:
+    - name: board
+    - operation: subtract
+      name: mounting_plate
+
+  size_test:
+    - what: rectangle
+      size: [256, 130]
+      where:
+          ref.aggregate.parts: [matrix_inner_home, mirror_matrix_inner_home]
+          shift: [0, 8.5]
+  size_test2:
+    - what: rectangle
+      size: [220, 130]
+      where:
+          ref.aggregate.parts: [matrix_inner_home, mirror_matrix_inner_home]
+          shift: [(220 - 256) / 2, 8.5]
+  test:
+    - name: top_plate
+    - operation: stack
+      name: key_test
+    - name: test
+    - operation: stack
+      name: promicro
+    - name: test
+    - operation: stack
+      name: hole
+    - name: test
+    - operation: stack
+      name: size_test
+    - name: test
+    - operation: stack
+      name: size_test2
+
+pcbs:
+  pcb_plate:
+    outlines:
+      main:
+        outline: pcb_plate
+    footprints:
+      mx_switch:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: tht_diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -6]
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref.aggregate.parts: [matrix_inner_top, mirror_matrix_inner_top]
+          shift: [pro_x,pro_y]
+          rotate: pro_rot
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref.aggregate.parts: [matrix_middle_top, mirror_matrix_middle_top]
+          shift: [reset_x,reset_y]
+          rotate: 0
+
+  top_plate:
+    outlines:
+      main:
+        outline: top_plate
+
+  bottom_plate:
+    outlines:
+      main:
+        outline: bottom_plate

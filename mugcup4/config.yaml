@@ -1,0 +1,470 @@
+units:
+  # unit size
+  us: U
+
+  # Proxy Spacing Variables
+  cirque_D: 38.86
+  cirque_R: cirque_D / 2
+  cirque_holder_D: 41.14
+  cirque_holder_R: cirque_holder_D / 2
+  cirque_cover_L: cirque_holder_D + 12
+  cirque_holder_L: cirque_holder_D + 16
+  cirque_holder_screw: cirque_holder_R - 1
+
+  # outlines value
+  outline_margin: 0.55
+  smoothing: 2
+  screwSize: 2.25
+  screwMargin: 2
+
+  # promicro pos
+  pro_x: -50
+  pro_y: 10
+  pro_rot: 0
+
+  #reset pos
+  reset_x: -5
+  reset_y: -20
+
+  # cirque_board pos
+  cir_board_x: -22
+  cir_board_y: 13
+
+  #cirque pos
+  cir_x: -39
+  cir_y: -32
+
+  #trackpad edge
+  edge: cirque_holder_R + 8 + (outline_margin - 0.5) * us
+
+points:
+  zones:
+    matrix:
+      anchor:
+        shift: [130,-100]
+      key:
+        padding: 1us
+        spread: 1us
+      columns:
+        index:
+          key:
+            column_net: P4
+        middle:
+          key:
+            stagger: 0.3us
+            column_net: P5
+      rows:
+        bottom:
+          row_net: P14
+        top:
+          row_net: P15
+
+outlines:
+  keys:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [us-0.01,us-0.01]
+  key_hole:
+    - what: rectangle
+      where: true
+      bound: false
+      size: [14.02,14.02]
+
+  board:
+    - what: polygon
+      operation: stack
+      fillet: smoothing
+      points:
+        - ref: matrix_index_top
+          shift: [-1 * outline_margin * us,outline_margin * us]
+        - ref: matrix_middle_top
+          shift: [-1 * outline_margin * us,outline_margin * us]
+        - ref: matrix_middle_top
+          shift: [outline_margin * us,outline_margin * us]
+        - ref: matrix_middle_bottom
+          shift: [outline_margin * us,-1 * outline_margin * us]
+        - ref: matrix_index_bottom
+          shift: [outline_margin * us,-1 * outline_margin * us]
+        - ref: matrix_index_bottom
+          shift: [cir_x + edge, cir_y - edge]
+        - ref: matrix_index_bottom
+          shift: [cir_x - edge, cir_y - edge]
+        - ref: matrix_index_bottom
+          shift: [cir_x - edge, cir_y + edge + 31]
+
+# pcb parts
+  promicro:
+    - what: rectangle
+      size: [38, 20]
+      fillet: 0
+      where:
+        ref: matrix_index_bottom
+        rotate: pro_rot
+        shift: [pro_x - 4, pro_y]
+  cirque_board:
+    - what: rectangle
+      size: [20, 20]
+      where:
+          ref: matrix_index_bottom
+          shift: [cir_board_x,cir_board_y]
+  reset_hole:
+    - what: circle
+      radius: 2
+      where:
+          ref: matrix_index_bottom
+          shift: [reset_x,reset_y]
+
+# touch pad
+  touchpad_cover_hole:
+    - what: circle
+      radius: cirque_R
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y]
+
+  touchpad_plate_hole:
+    - what: circle
+      radius: cirque_R-1
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y]
+
+  touchpad_holder_hole_big:
+    - what: circle
+      radius: cirque_holder_R
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y]
+  touchpad_holder_hole_small:
+#    - what: circle
+#      radius: 1.1
+    - what: rectangle
+      size: 2.1
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y + cirque_holder_R - 0.1]
+  touchpad_holder_hole:
+    - name: touchpad_holder_hole_big
+    - operation: subtract
+      name: touchpad_holder_hole_small
+
+  touchpad_holder_outline:
+    - what: rectangle
+      size: cirque_holder_L
+      corner: 3
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y]
+  touchpad_cover_outline:
+    - what: rectangle
+      size: cirque_cover_L
+      corner: 3
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x, cir_y]
+
+# pcb mount hole
+  mounting:
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_top
+        shift: [7, 11]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_middle_bottom
+        shift: [-7, -11]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_top
+        shift: [-63, 5.5]
+
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x + cirque_holder_screw, cir_y +  cirque_holder_screw]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x + -cirque_holder_screw, cir_y +  cirque_holder_screw]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x + cirque_holder_screw, cir_y +  -cirque_holder_screw]
+    - what: circle
+      radius: screwSize
+      where:
+        ref: matrix_index_bottom
+        shift: [cir_x + -cirque_holder_screw, cir_y +  -cirque_holder_screw]
+
+# test
+  size_test:
+    - what: rectangle
+      size: 100
+      where:
+        ref: matrix_index_bottom
+        shift: [-19.5, -13]
+
+  touchpad_test:
+    - name: touchpad_test
+    - operation: stack
+      name: touchpad_holder_outline
+    - name: touchpad_test
+    - operation: stack
+      name: touchpad_holder_hole
+    - name: touchpad_test
+    - operation: stack
+      name: touchpad_cover_outline
+    - name: touchpad_test
+    - operation: stack
+      name: touchpad_cover_hole
+
+  test:
+    - name: test
+    - operation: stack
+      name: keys
+    - name: test
+    - operation: stack
+      name: key_hole
+    - name: test
+    - operation: stack
+      name: promicro
+    - name: test
+    - operation: stack
+      name: cirque_board
+    - name: test
+    - operation: stack
+      name: board
+    - name: test
+    - operation: stack
+      name: mounting
+    - name: test
+    - operation: stack
+      name: reset_hole
+    - name: test
+    - operation: stack
+      name: touchpad_test
+    - name: test
+    - operation: stack
+      name: size_test
+
+  top_plate:
+    - name: board
+    - operation: subtract
+      name: key_hole
+    - name: top_plate
+    - operation: subtract
+      name: reset_hole
+    - name: top_plate
+    - operation: subtract
+      name: touchpad_plate_hole
+    - name: top_plate
+    - operation: subtract
+      name: promicro
+
+  pcb_plate:
+    - name: board
+    - operation: subtract
+      name: mounting
+    - name: pcb_plate
+    - operation: subtract
+      name: touchpad_plate_hole
+
+  touchpad_holder:
+    - name: touchpad_holder_outline
+    - operation: subtract
+      name: touchpad_holder_hole
+  touchpad_cover:
+    - name: touchpad_cover_outline
+    - operation: subtract
+      name: touchpad_cover_hole
+
+pcbs:
+  pcb_plate:
+    outlines:
+      main:
+        outline: pcb_plate
+    footprints:
+      mx_switch:
+        what: mx
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: false
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: tht_diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-0.5us, -8]
+          rotate: 90
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: matrix_index_bottom
+          shift: [pro_x,pro_y]
+          rotate: pro_rot
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref: matrix_index_bottom
+          shift: [reset_x,reset_y]
+          # rotate: 35 - 90
+      oled:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_board_x + 5.75,cir_board_y + 10]
+          rotate: -90
+  top_plate:
+    outlines:
+      main:
+        outline: top_plate
+    footprints:
+      temp1:
+        what: mountinghole
+        where:
+          ref: matrix_index_top
+          shift: [7, 11]
+      temp2:
+        what: mountinghole
+        where:
+          ref: matrix_middle_bottom
+          shift: [-7, -11]
+      temp3:
+        what: mountinghole
+        where:
+          ref: matrix_index_top
+          shift: [-63, 5.5]
+      temp4:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp5:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp6:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  -cirque_holder_screw]
+      temp7:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  -cirque_holder_screw]
+
+  bottom_plate:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      temp1:
+        what: mountinghole
+        where:
+          ref: matrix_index_top
+          shift: [7, 11]
+      temp2:
+        what: mountinghole
+        where:
+          ref: matrix_middle_bottom
+          shift: [-7, -11]
+      temp3:
+        what: mountinghole
+        where:
+          ref: matrix_index_top
+          shift: [-63, 5.5]
+      temp4:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp5:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp6:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  -cirque_holder_screw]
+      temp7:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  -cirque_holder_screw]
+
+  touchpad_holder:
+    outlines:
+      main:
+        outline: touchpad_holder
+    footprints:
+      temp4:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp5:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp6:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  -cirque_holder_screw]
+      temp7:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  -cirque_holder_screw]
+  touchpad_cover:
+    outlines:
+      main:
+        outline: touchpad_cover
+    footprints:
+      temp4:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp5:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  cirque_holder_screw]
+      temp6:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + cirque_holder_screw, cir_y +  -cirque_holder_screw]
+      temp7:
+        what: mountinghole
+        where:
+          ref: matrix_index_bottom
+          shift: [cir_x + -cirque_holder_screw, cir_y +  -cirque_holder_screw]
