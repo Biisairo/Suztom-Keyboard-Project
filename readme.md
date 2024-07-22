@@ -5,17 +5,17 @@ Typing error of word "Custom"
 ## keyboard Info
 
 mitt38 - The First Project
-- 3x5 key
-- 4 thumbs key
-- sweep-like layout
+- ferris sweep (34 key) layout
+  - 3x5 key per hand
+  - 4 thumbs key
 - unibody/monoblock split
 - 4 mouse key
 - 40mm Cirque trackpad
 
 zako34 - The Second Project
-- 3x5 key layout
-- 4 thumbs key
-- sweep-like layout
+- ferris sweep (34 key) layout
+  - 3x5 key per hand
+  - 4 thumbs key
 - unibody/monoblock split
 
 mugcup4 - The Third Project
