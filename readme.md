@@ -55,7 +55,7 @@ mugcup4 - The Third Project
 ### mugcup4
 |parts							  	|etc
 |-----------						|------	
-|Cirque 35mm						|[install cirque](https://github.com/Keycapsss/cirque-trackpad)[install cirque](https://github.com/Keycapsss/cirque-trackpad)
+|Cirque 35mm						|[install cirque](https://github.com/Keycapsss/cirque-trackpad)
 |Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
 |trackpad cover					|for 35mm
@@ -66,4 +66,3 @@ mugcup4 - The Third Project
 - [ergogen web](https://github.com/ceoloide/ergogen-footprints)
 - [ergogen tutorial](https://flatfootfox.com/ergogen-introduction/)
 - [Cirque adapter](https://github.com/keyboard-magpie/minimal-fpc-i2c-pcb)
-- [install cirque](https://github.com/Keycapsss/cirque-trackpad)
