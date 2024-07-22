@@ -5,19 +5,19 @@ Typing error of word "Custom"
 ## keyboard Info
 
 mitt38 - The First Project
+- The name comes from the palm-like shape of the center trackpad and four mouse keys arranged
 - Using key layout of ferris
 - Cirque 40mm to pointing device
-- The name comes from the palm-like shape of the center trackpad and four mouse keys arranged
 
 zako34 - The Second Project
+- The name comes from Zako in Galaga
 - Monoblock/Unibody keyboard using key layout of ferris
 - Add a strap hole in the top left
-- The name comes from Zako in Galaga
 
 mugcup4 - The Third Project
+- The name comes from shape of board
 - Trackpad mouse using Cirque 35mm
 - [left click], [right click], [wheel click], [scroll mode] for 4 keys
-- The name comes from shape of board
 
 ## Image
 
