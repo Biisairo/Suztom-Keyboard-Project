@@ -47,7 +47,7 @@ mugcup4 - The Third Project
 |parts						  		|etc
 |-----------						|------	
 |2m nut								  |
-|Cirque 40mm						|
+|Cirque 40mm						|[install cirque](https://github.com/Keycapsss/cirque-trackpad)
 |Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
 |trackpad cover					|for 40mm
@@ -55,7 +55,7 @@ mugcup4 - The Third Project
 ### mugcup4
 |parts							  	|etc
 |-----------						|------	
-|Cirque 35mm						|
+|Cirque 35mm						|[install cirque](https://github.com/Keycapsss/cirque-trackpad)[install cirque](https://github.com/Keycapsss/cirque-trackpad)
 |Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
 |trackpad cover					|for 35mm
