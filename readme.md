@@ -42,15 +42,15 @@ mugcup4 - The Third Project
 |top plate						          	|
 |pcb plate						          	|
 |bottom plate				          		|
-|2m screw							            |6mm, 8mm
-|2m stand off			          			|8mm
+|M2 screw							            |5mm, 8mm
+|M2 stand off			          			|8mm
 |reset switch						          |TS-1187SMD
 |pro micro(or alternative board)	|
 |diode							            	|tht 1N4148
 ### mitt38
 |parts						  		|etc
 |-----------						|------	
-|2m nut								  |
+|M2 nut								  |
 |Cirque 40mm						|[install cirque](https://github.com/Keycapsss/cirque-trackpad)
 |Cirque adapter board		|
 |jumper cable						|0.5mm 12core ribbon cable
