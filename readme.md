@@ -65,7 +65,7 @@ mugcup4 - The Third Project
 |trackpad cover					|for 35mm
 |trackpad holder				|for 35mm
 
-## Build Guide
+## Build Guide (todo)
 - [mitt38](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/build_guide/mitt38.md)
 - [zako34](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/build_guide/zako34.md)
 - [mugcup4](https://github.com/Biisairo/Suztom-Keyboard-Project/blob/master/build_guide/mugcup4.md)
