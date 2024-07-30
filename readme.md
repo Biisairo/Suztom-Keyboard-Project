@@ -1,7 +1,5 @@
 # Suztom Keyboard Project
 
-Typing error of word "Custom"
-
 ## keyboard Info
 
 mitt38 - The First Project
