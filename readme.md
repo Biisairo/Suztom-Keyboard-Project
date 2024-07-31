@@ -2,7 +2,7 @@
 
 ## keyboard Info
 
-mitt38 - The First Project
+mitt38
 - ferris sweep (34 key) layout
   - 3x5 key per hand
   - 4 thumbs key
@@ -10,13 +10,13 @@ mitt38 - The First Project
 - 4 mouse key
 - 40mm Cirque trackpad
 
-zako34 - The Second Project
+zako34
 - ferris sweep (34 key) layout
   - 3x5 key per hand
   - 4 thumbs key
 - unibody/monoblock split
 
-mugcup4 - The Third Project
+mugcup4
 - trackpad mouse
 - 4 mouse key
 - 35mm Cirque trackpad
